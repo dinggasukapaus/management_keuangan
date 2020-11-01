@@ -1,7 +1,7 @@
 ## instalasi (clone) proyek ppl
-- 1.  copy https://github.com/dinggasukapaus/management_keuangan.git
-- 2.  composer update
-- 3.  buat databse sesuai nama database , setting di file ".env"
+1.  copy https://github.com/dinggasukapaus/management_keuangan.git
+2.  composer update
+3.  buat databse sesuai nama database , setting di file ".env"
 
 ## Todo
 - [ ] role user 
