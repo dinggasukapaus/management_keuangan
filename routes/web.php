@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/demo', function () {
-    return view('demo');
-});
-
-
 Route::get('/', function () {
-    $tasks = [
-        'makan',
-        'tidur',
-        'buka laptop'
-    ];
-    return view('welcome', compact('tasks'));
+    return view('welcome');
 });
- 
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
