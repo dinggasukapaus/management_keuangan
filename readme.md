@@ -7,7 +7,10 @@
 5.  ketik php artisan ui --auth bootstrap
 6.  ketik npm install
 7.  ketik run dev
-8.  php artisan serve
+8.  php artisan migrate
+9.  php artisan key:generate
+10. php artisan db:seed
+11. php artisan serve
 
 ## Todo
 
