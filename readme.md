@@ -14,7 +14,7 @@
 
 ## Todo
 
--   [x] role user
+-   [ ] role user
 -   [ ] dashboard
 -   [ ] management keuangan
 -   [ ] management distributor
