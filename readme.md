@@ -15,6 +15,5 @@
 -   [ ] management keuangan
 -   [ ] management distributor
 -   [ ] management pegawai
--   [ ] management produksi
 -   [ ] management jadwal pertemuan && management produksi
 -   [ ] data rekap
