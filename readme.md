@@ -12,9 +12,9 @@
 ## Todo
 
 -   [ ] role user
--   [ ] management pegawai
 -   [ ] management keuangan
 -   [ ] management distributor
+-   [ ] management pegawai
 -   [ ] management produksi
--   [ ] management jadwal pertemuan
+-   [ ] management jadwal pertemuan && management produksi
 -   [ ] data rekap
