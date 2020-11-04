@@ -14,6 +14,8 @@
 
 ## Todo
 
+-   [x] instalasi template
+-   [x] login
 -   [ ] role user
 -   [ ] dashboard
 -   [ ] management keuangan
