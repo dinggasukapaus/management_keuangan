@@ -16,8 +16,9 @@
 
 -   [x] instalasi template
 -   [x] login
--   [ ] role user
--   [ ] dashboard
+-   [x] role user
+-   [x] dashboard
+-   [ ] pembagian menu untul setiap role
 -   [ ] management keuangan
 -   [ ] management distributor
 -   [ ] management pegawai
