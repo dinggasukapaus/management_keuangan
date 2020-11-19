@@ -20,6 +20,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
+
+    //manajemen sumber pemasukan
+
+    Route::get('sumber-pemasukan','SumberController@index');
+    Route::get('sumber-pemasukan/add','SumberController@add');
+    Route::post('sumber-pemasukan/add','SumberController@store');
 });
 
 

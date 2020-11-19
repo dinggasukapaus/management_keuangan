@@ -19,7 +19,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="examples/icons.html">
+              <a class="nav-link" href="{{ url('sumber-pemasukan') }}">
                 <i class="ni ni-money-coins text-yellow"></i>
                 <span class="nav-link-text">Keuangan</span>
               </a>
