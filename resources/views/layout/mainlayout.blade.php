@@ -10,6 +10,8 @@
 
 <body>
 
+    AAAAAAAAAAAAA
+
 
 @include('layout.partials.nav')
 

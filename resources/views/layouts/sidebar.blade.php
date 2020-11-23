@@ -13,7 +13,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="examples/dashboard.html">
+              <a class="nav-link active" href="{{ url('/') }}">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
@@ -24,6 +24,12 @@
                 <span class="nav-link-text">Keuangan</span>
               </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('distributor') }}">
+                  <i class="ni ni-air-baloon"></i>
+                  <span class="nav-link-text">Distributor</span>
+                </a>
+              </li>
             <li class="nav-item">
               <a class="nav-link" href="examples/map.html">
                 <i class="ni ni-single-copy-04 text-primary"></i>

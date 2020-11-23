@@ -8,13 +8,13 @@
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">tambah pemasukan</li>
+          <li class="breadcrumb-item active" aria-current="page">tambah pengeluaran</li>
         </ol>
       </nav>
     </div>
 
   </div>
-<form action="{{ url('sumber-pemasukan/submit') }}" method="POST">
+<form action="{{ url('sumber-pengeluaran/submit') }}" method="POST">
     @csrf
     <div class="row">
       <div class="col-md-6">
@@ -29,7 +29,7 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1" style="color: black">Tanggal</label>
-            <input type="date" class="form-control" name="tanggal" id="tanggal>
+            <input type="date" class="form-control" name="tanggal" id="tanggal">
           </div>
 
         <div class="form-group">

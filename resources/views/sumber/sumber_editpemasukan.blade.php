@@ -8,32 +8,32 @@
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">tambah pemasukan</li>
+          <li class="breadcrumb-item active" aria-current="page">edit pemasukan</li>
         </ol>
       </nav>
     </div>
 
   </div>
-<form action="{{ url('sumber-pemasukan/submit') }}" method="POST">
+<form action="{{route('updatepemasukan',['id'=>$sumber->id])}}" method="post">
     @csrf
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-            <label for="exampleInputEmail1" style="color: black">Keterangan</label>
-            <input type="text" class="form-control" name="keterangan" id="keterangan">
+            <label style="color: black" name="keterangan" id="keterangan" >Keterangan</label>
+            <input type="text" class="form-control" value="{{$sumber->keterangan}}">
 
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1" style="color: black">Jumlah</label>
-            <input type="text" class="form-control" name="jumlah" id="jumlah">
+            <label style="color: black" name="jumlah" id="jumlah" >Jumlah</label>
+            <input type="text" class="form-control" value="{{$sumber->jumlah}}">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1" style="color: black">Tanggal</label>
-            <input type="date" class="form-control" name="tanggal" id="tanggal>
+            <label style="color: black" name="tanggal" id="tanggal" >Tanggal</label>
+            <input type="date" class="form-control" value="{{$sumber->tanggal}}">
           </div>
 
         <div class="form-group">
-          <input type="submit" class="btn btn-info" value="simpan" >
+            <button class="btn btn-info" type="submit" value="Simpan Data">Submit</button>
         </div>
       </div>
 
