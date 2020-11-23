@@ -35,7 +35,7 @@
                 <th scope="col" class="sort" data-sort="name">#</th>
                 <th scope="col" class="sort" data-sort="budget">Nama</th>
                 <th scope="col" class="sort" data-sort="status">Create At</th>
-                <th scope="col">Action</th>
+                <th scope="col"><center>Action</center></th>
               </tr>
             </thead>
             <tbody class="list">
@@ -45,7 +45,23 @@
                     <td>{{ $index+1 }}</td>
                     <td>{{ $sb->nama }}</td>
                     <td>{{ $sb->created_at }}</td>
-                    <td></td>
+                    <td>
+                        <center>
+                            <a href="{{ url('sumber-pemasukan/'.$sb->id) }}">
+
+
+                                <span>edit</span>
+                            </a>
+                            |
+                            <a sumber-id="{{ $sb->id }}" class="btn-hapus" href="{{ url('sumber-pemasukan/'.$sb->id) }}">
+
+
+                                <span style="color:red">hapus</span>
+                            </a>
+
+
+                        </center>
+                        </td>
 
 
                     {{-- <td class="text-right">
@@ -96,4 +112,46 @@
     </div>
   </div>
 
+
+  <!-- Modal -->
+<div class="modal fade" id="idmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">hapus title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          anda yakin menghapus
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <form action="" method="post">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-primary">Save changes</button>
+
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('.btn-hapus').click(function(e){
+            e.preventDefault();
+            var id =$(this).attr('sumber-id');
+            var url = "{{ url('sumber-pemasukan') }}"+'/'+id;
+            $('#idmodal').find('form').attr('action',url);
+            $('#idmodal').modal();
+        })
+        })
+
+</script>
 @endsection

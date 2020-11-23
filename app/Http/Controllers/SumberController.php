@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 
+
 use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SumberController extends Controller
 {
@@ -39,6 +41,42 @@ class SumberController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
 
         ]);
+        Alert::success('selamat', $nama . ' telat ditambah');
+
+
+        return redirect('sumber-pemasukan');
+    }
+
+    public function edit($id)
+    {
+        $data = DB::table('tb_pemasukan')->where('id', $id)->first();
+
+        return view('sumber.sumber_edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'nama' => 'required'
+        ]);
+
+        //proses update
+        DB::table('tb_pemasukan')->where('id', $id)->update([
+            'nama' => $request->nama,
+            'updated_at' => date('Y-m-d  H:i;s'),
+        ]);
+
+        // Alert::success('selamat', $request->nama . ' di update');
+        Alert::toast('selamat');
+        // return redirect('sumber-pemasukan')->withToastSuccess($request->nama, 'berhasil di update');
+
+
+        return redirect('sumber-pemasukan');
+    }
+
+    public function delete($id)
+    {
+        DB::table('tb_pemasukan')->where('id', $id)->delete();
 
         return redirect('sumber-pemasukan');
     }
