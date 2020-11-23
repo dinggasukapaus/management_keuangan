@@ -33,7 +33,7 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort" data-sort="name">#</th>
-                <th scope="col" class="sort" data-sort="budget">Nama</th>
+                <th scope="col" class="sort" data-sort="budget">keterangan</th>
                 <th scope="col" class="sort" data-sort="status">Create At</th>
                 <th scope="col"><center>Action</center></th>
               </tr>
@@ -43,7 +43,7 @@
 
                 <tr>
                     <td>{{ $index+1 }}</td>
-                    <td>{{ $sb->nama }}</td>
+                    <td>{{ $sb->keterangan }}</td>
                     <td>{{ $sb->created_at }}</td>
                     <td>
                         <center>
@@ -64,18 +64,7 @@
                         </td>
 
 
-                    {{-- <td class="text-right">
-                        <div class="dropdown">
-                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                    </td> --}}
+
                 </tr>
                 @endforeach
 
@@ -118,7 +107,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">hapus title</h5>
+          <h5 class="modal-title" id="exampleModalLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> info</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

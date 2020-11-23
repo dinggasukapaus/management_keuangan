@@ -19,13 +19,13 @@
         <div class="header-body">
 
           <!-- Card stats -->
-@yield('content')
-@include('sweetalert::alert')
-
-
         </div>
-      </div>
+        @yield('content')
+        @include('sweetalert::alert')
     </div>
+</div>
+
+
     <!-- Page content -->
 
   </div>

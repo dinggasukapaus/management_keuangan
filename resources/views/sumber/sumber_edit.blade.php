@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <input value="{{ $data->nama }}" type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
+          <input value="{{ $data->keterangan }}" type="text" name="keterangan" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-info" value="simpan" >

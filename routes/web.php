@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 //! jadi route '/' akan dibatasi oleh middleware
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
-        return view('welcome');
+        return view('dashboard');
     });
 
     //manajemen sumber pemasukan
