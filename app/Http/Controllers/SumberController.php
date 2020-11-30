@@ -15,7 +15,7 @@ class SumberController extends Controller
 
     public function index()
     {
-        $sumber =  DB::table('tb_pemasukan')->get();
+        $sumber =  DB::table('tb_sumber_pemasukan')->get();
 
 
         return view('sumber.sumber_index', compact('sumber'));
@@ -34,7 +34,7 @@ class SumberController extends Controller
         ]);
 
         $keterangan = $request->keterangan;
-        DB::table('tb_pemasukan')->insert([
+        DB::table('tb_sumber_pemasukan')->insert([
             'id' => Uuid::generate(4),
             'keterangan' => $keterangan,
             'created_at' => date('Y-m-d H:i:s'),
@@ -49,7 +49,7 @@ class SumberController extends Controller
 
     public function edit($id)
     {
-        $data = DB::table('tb_pemasukan')->where('id', $id)->first();
+        $data = DB::table('tb_sumber_pemasukan')->where('id', $id)->first();
 
         return view('sumber.sumber_edit', compact('data'));
     }
@@ -61,7 +61,7 @@ class SumberController extends Controller
         ]);
 
         //proses update
-        DB::table('tb_pemasukan')->where('id', $id)->update([
+        DB::table('tb_sumber_pemasukan')->where('id', $id)->update([
             'keterangan' => $request->keterangan,
             'updated_at' => date('Y-m-d  H:i;s'),
         ]);
@@ -76,7 +76,7 @@ class SumberController extends Controller
 
     public function delete($id)
     {
-        DB::table('tb_pemasukan')->where('id', $id)->delete();
+        DB::table('tb_sumber_pemasukan')->where('id', $id)->delete();
         Alert::info('data', ' telat hapus');
         return redirect('sumber-pemasukan');
     }

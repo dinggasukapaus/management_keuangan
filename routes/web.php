@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('sumber-pemasukan/{id}', 'SumberController@edit');
     Route::put('sumber-pemasukan/{id}', 'SumberController@update');
     Route::delete('sumber-pemasukan/{id}', 'SumberController@delete');
+    //manajemen pemasukan
+    Route::get('pemasukan', 'PemasukanController@index');
 });
 
 
