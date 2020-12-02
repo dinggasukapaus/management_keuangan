@@ -14,19 +14,18 @@
     </div>
 
   </div>
-<form action="{{ url('sumber-pemasukan/add') }}" method="POST">
+<form action="{{ url('sumber-pemasukan/'.$data->id) }}" method="POST">
     @csrf
+    @method('put')
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <input type="text" name="keterangan" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
+          <input value="{{ $data->keterangan }}" type="text" name="keterangan" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-info" value="simpan" >
-
         </div>
       </div>
-
 
     </div>
 
