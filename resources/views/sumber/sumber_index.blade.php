@@ -68,7 +68,7 @@
                             <a sumber-id="{{ $sb->id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('sumber-pemasukan/'.$sb->id) }}" data-toggle="tooltip" data-original-title="Delete sumber">
 
 
-                                <i class="fas fa-trash"></i>
+                                <i style="color: red" class="fas fa-trash"></i>
                             </a>
 
                         </center>

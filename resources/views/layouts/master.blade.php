@@ -39,6 +39,7 @@
     <script src="{{asset('argon/assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
     <!-- Argon JS -->
     <script src="{{asset('argon/assets/js/argon.js?v=1.2.0')}}"></script>
+    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
     @yield('scripts')
 

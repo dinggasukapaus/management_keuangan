@@ -163,9 +163,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
+
         /*
-         * Package Service Providers...
-         */
+        * Package Service Providers...
+        */
 
         /*
          * Application Service Providers...
@@ -175,6 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        yajra\DataTables\DataTablesServiceProvider::class,
 
     ],
 
@@ -228,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Datatables' => yajra\Datatables\Facades\Datatables::class,
 
     ],
 

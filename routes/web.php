@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('sumber-pemasukan/{id}', 'SumberController@delete');
     //manajemen pemasukan
     Route::get('pemasukan', 'PemasukanController@index');
+    Route::get('pemasukan/yajra', 'PemasukanController@yajra');
 });
 
 

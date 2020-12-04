@@ -31,38 +31,18 @@
     </div>
     <!-- Light table -->
     <div class="table-responsive">
-      <table class="table align-items-center table-flush">
+      <table id="table-pemasukan" class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
             <th>#</th>
             <th>Sumber</th>
             <th>Nominal</th>
             <th>Tanggal</th>
+            <th>Keterangan</th>
+            <th>aksi</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td class="table-user">
-              <img src="../../assets/img/theme/team-1.jpg" class="avatar rounded-circle mr-3">
-              <b>John Michael</b>
-            </td>
-            <td>
-              <span class="text-muted">10/09/2018</span>
-            </td>
-            <td>
-              <a href="#!" class="font-weight-bold">Argon Dashboard PRO</a>
-            </td>
-            <td class="table-actions">
-              <a href="#!" class="table-action" data-toggle="tooltip" data-original-title="Edit product">
-                <i class="fas fa-user-edit"></i>
-              </a>
-              <a href="#!" class="table-action table-action-delete" data-toggle="tooltip" data-original-title="Delete product">
-                <i style="color:red" class="fas fa-trash"></i>
-              </a>
-            </td>
-          </tr>
 
-        </tbody>
       </table>
     </div>
     <div class="card-footer py-4">
@@ -91,6 +71,29 @@
         </nav>
       </div>
   </div>
+
+@endsection
+
+@section('scripts')
+
+<script>
+    $.fn.dataTable.ext.errMode = 'throw';
+    $(document).ready(function(){
+        $('#table-pemasukan').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ url('pemasukan/yajra') }}",
+        columns: [
+            // or just disable search since it's not really searchable. just add searchable:false
+            {data: 'rownum', name: 'rownum'},
+            {data: 'keterangan', name: 'keterangan'},
+            {data: 'nominal', name: 'nominal'},
+            {data: 'tanggal', name: 'tanggal'},
+            {data: 'keterangan', name: 'keterangan'}
+        ]
+    });
+    })
+</script>
 
 @endsection
 
