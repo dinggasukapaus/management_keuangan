@@ -30,18 +30,18 @@ class SumberController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'keterangan' => 'required'
+            'nama' => 'required'
         ]);
 
-        $keterangan = $request->keterangan;
+        $nama = $request->nama;
         DB::table('tb_sumber_pemasukan')->insert([
             'id' => Uuid::generate(4),
-            'keterangan' => $keterangan,
+            'nama' => $nama,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
 
         ]);
-        Alert::success('selamat', $keterangan . ' telat ditambah');
+        Alert::success('selamat', $nama . ' telat ditambah');
 
 
         return redirect('sumber-pemasukan');
@@ -57,18 +57,18 @@ class SumberController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'keterangan' => 'required'
+            'nama' => 'required'
         ]);
 
         //proses update
         DB::table('tb_sumber_pemasukan')->where('id', $id)->update([
-            'keterangan' => $request->keterangan,
+            'nama' => $request->nama,
             'updated_at' => date('Y-m-d  H:i;s'),
         ]);
 
-        // Alert::success('selamat', $request->keterangan . ' di update');
+        // Alert::success('selamat', $request->nama . ' di update');
         toast('data anda berhasil di update !', 'success');
-        // return redirect('sumber-pemasukan')->withToastSuccess($request->keterangan, 'berhasil di update');
+        // return redirect('sumber-pemasukan')->withToastSuccess($request->nama, 'berhasil di update');
 
 
         return redirect('sumber-pemasukan');

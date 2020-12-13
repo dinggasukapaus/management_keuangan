@@ -8,7 +8,7 @@
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Keuangan</li>
+          <li class="breadcrumb-item active" aria-current="page">pengeluaran</li>
         </ol>
       </nav>
     </div>
@@ -26,9 +26,9 @@
             <span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
             <span class="btn-inner--text">Export</span>
           </a>
-          <a href="{{ url('pemasukan/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah pemasukan">
+          <a href="{{ url('pengeluaran/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah pemasukan">
             <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-    <span class="btn-inner--text">tambah pemasukan</span>
+    <span class="btn-inner--text">tambah pengeluaran</span>
           </a>
         </div>
 
@@ -40,42 +40,26 @@
         <thead class="thead-light">
           <tr>
             <th>#</th>
-            <th>Sumber</th>
             <th>Nominal</th>
             <th>Tanggal</th>
             <th>Keterangan</th>
             <th>aksi</th>
           </tr>
         </thead>
+        <tbody>
+            @foreach ($data as $i=>$item)
+                <tr>
+                    <td>{{ $i+1 }}</td>
+                    <td>{{ $item->nominal_luar }}</td>
+                    <td>{{ $item->tanggal_pengeluaran }}</td>
+                    <td>{{ $item->keterangan }}</td>
+                </tr>
+            @endforeach
+        </tbody>
 
       </table>
     </div>
-    {{-- <div class="card-footer py-4">
-        <nav aria-label="...">
-          <ul class="pagination justify-content-end mb-0">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
-                <i class="fas fa-angle-left"></i>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fas fa-angle-right"></i>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-  </div> --}}
+
     <!-- Modal -->
 <div class="modal fade" id="idmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -110,30 +94,7 @@
 <script>
     $.fn.dataTable.ext.errMode = 'throw';
     $(document).ready(function(){
-        $('#table-pemasukan').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ url('pemasukan/yajra') }}",
-        columns: [
-            // or just disable search since it's not really searchable. just add searchable:false
-            {data: 'rownum', name: 'rownum'},
-            {data: 'nama', name: 'nama'},
-            {data: 'nominal', name: 'nominal'},
-            {data: 'tanggal', name: 'tanggal'},
-            {data: 'keterangan', name: 'keterangan'},
-            {data: 'action', name: 'action', orderable: false, searchable: false}
-        ],
-        initComplete: function () {
-            this.api().columns().every(function () {
-                var column = this;
-                var input = document.createElement("input");
-                $(input).appendTo($(column.footer()).empty())
-                .on('change', function () {
-                    column.search($(this).val(), false, false, true).draw();
-                });
-            });
-        }
-    });
+
     $('body').on('click','#btn-hapus',function(e){
         e.preventDefault();
         var url = $(this).attr('href');

@@ -43,7 +43,7 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort" data-sort="name">#</th>
-                <th scope="col" class="sort" data-sort="budget">keterangan</th>
+                <th scope="col" class="sort" data-sort="budget">nama</th>
                 <th scope="col" class="sort" data-sort="status">Create At</th>
                 <th scope="col"><center>Action</center></th>
               </tr>
@@ -53,21 +53,17 @@
 
                 <tr>
                     <td>{{ $index+1 }}</td>
-                    <td>{{ $sb->keterangan }}</td>
+                    <td>{{ $sb->nama }}</td>
                     <td>{{ $sb->created_at }}</td>
                     <td class="table-actions">
                         <center>
 
 
                             <a href="{{ url('sumber-pemasukan/'.$sb->id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
-
-
                                 <i class="fas fa-user-edit"></i>
                             </a>
                             |
                             <a sumber-id="{{ $sb->id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('sumber-pemasukan/'.$sb->id) }}" data-toggle="tooltip" data-original-title="Delete sumber">
-
-
                                 <i style="color: red" class="fas fa-trash"></i>
                             </a>
 

@@ -39,8 +39,6 @@ class CreateTablePemasukan extends Migration
      */
     public function down()
     {
-        Schema::table('pemasukan', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('pemasukan');
     }
 }

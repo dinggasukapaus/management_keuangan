@@ -29,8 +29,6 @@ class TableSumberPemasukan extends Migration
      */
     public function down()
     {
-        Schema::table('tb_pemasukan', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('tb_sumber_pemasukan');
     }
 }

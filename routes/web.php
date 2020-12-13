@@ -32,6 +32,16 @@ Route::group(['middleware' => 'auth'], function () {
     //manajemen pemasukan
     Route::get('pemasukan', 'PemasukanController@index');
     Route::get('pemasukan/yajra', 'PemasukanController@yajra');
+    Route::get('pemasukan/add', 'PemasukanController@add');
+    Route::post('pemasukan/add', 'PemasukanController@store');
+    Route::get('pemasukan/{id}', 'PemasukanController@edit');
+    Route::put('pemasukan/{id}', 'PemasukanController@update');
+    Route::delete('pemasukan/{id}', 'PemasukanController@delete');
+
+    //manajemen pengeluaran
+    Route::get('pengeluaran','PengeluaranController@index');
+    Route::get('pengeluaran/add','PengeluaranController@add');
+    Route::post('pengeluaran/add','PengeluaranController@store');
 });
 
 

@@ -40,7 +40,7 @@
     <!-- Argon JS -->
     <script src="{{asset('argon/assets/js/argon.js?v=1.2.0')}}"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-
+    <script src="{{ asset('argon/assets/vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
     @yield('scripts')
 
 

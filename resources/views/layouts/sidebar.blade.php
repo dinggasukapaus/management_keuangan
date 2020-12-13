@@ -112,7 +112,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="{{ url('pengeluaran') }}" class="nav-link">
                           <i class="fa fa-reply" style="color:red" aria-hidden="true"></i>
                         <span class="sidenav-normal"> sumber pengeluaran </span>
                       </a>

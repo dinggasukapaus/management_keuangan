@@ -17,9 +17,9 @@
 <form action="{{ url('sumber-pemasukan/add') }}" method="POST">
     @csrf
     <div class="row">
-      <div class="col-md-6">
+      <div class="col">
         <div class="form-group">
-          <input type="text" name="keterangan" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
+          <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-info" value="simpan" >
