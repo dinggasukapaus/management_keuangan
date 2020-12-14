@@ -13,9 +13,12 @@ class TableSumberPemasukan extends Migration
      */
     public function up()
     {
-        Schema::create('tb_sumber_pemasukan', function (Blueprint $table) {
+        Schema::create('datadistributor', function (Blueprint $table) {
             $table->string('id', 40);
-            $table->string('keterangan', 115);
+            $table->string('nama', 115);
+            $table->string('nohp',15);
+            $table->text('alamat');
+            // $table->string('keterangan', 115);
             $table->timestamps();
 
             $table->primary('id');
@@ -29,6 +32,6 @@ class TableSumberPemasukan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_sumber_pemasukan');
+        Schema::dropIfExists('datadistributor');
     }
 }

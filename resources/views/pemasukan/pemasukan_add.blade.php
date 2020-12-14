@@ -23,7 +23,7 @@
               <select name="sumber_pemasukan_id" class="form-control" id="exampleFormControlSelect1">
                 <option selected="" disabled="">Sumber pemasukan</option>
                 @foreach ($pemasukan as $pm)
-                    <option value="{{ $pm->id }}">{{ $pm->nama }}</option>
+                    <option value="{{ $pm->id }}">{{ $pm->keterangan }}</option>
                 @endforeach
               </select>
             </div>

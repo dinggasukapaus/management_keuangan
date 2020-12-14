@@ -7,7 +7,7 @@
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Keuangan</li>
+          <li class="breadcrumb-item active" aria-current="page">distributor</li>
         </ol>
       </nav>
     </div>
@@ -27,12 +27,12 @@
         <div class="card-header border-0">
             <div class="row">
                 <div class="col-6">
-                  <h3 class="mb-0">sumber pemasukan</h3>
+                  <h3 class="mb-0">data distributor</h3>
                 </div>
                 <div class="col-6 text-right">
-                  <a href="{{ url('sumber-pemasukan/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah pemasukan">
+                  <a href="{{ url('sumber-pemasukan/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah distributor">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-            <span class="btn-inner--text">tambah pemasukan</span>
+            <span class="btn-inner--text">tambah distributor</span>
                   </a>
                 </div>
               </div>
@@ -44,6 +44,8 @@
               <tr>
                 <th scope="col" class="sort" data-sort="name">#</th>
                 <th scope="col" class="sort" data-sort="budget">nama</th>
+                <th scope="col" class="sort" data-sort="budget">no hp</th>
+                <th scope="col" class="sort" data-sort="budget">alamat</th>
                 <th scope="col" class="sort" data-sort="status">Create At</th>
                 <th scope="col"><center>Action</center></th>
               </tr>
@@ -54,7 +56,9 @@
                 <tr>
                     <td>{{ $index+1 }}</td>
                     <td>{{ $sb->nama }}</td>
-                    <td>{{ $sb->created_at }}</td>
+                    <td>{{ $sb->nohp }}</td>
+                    <td>{{ $sb->alamat }}</td>
+                    <td>{{ date('m/d/Y',strtotime($sb->created_at)) }}</td>
                     <td class="table-actions">
                         <center>
 

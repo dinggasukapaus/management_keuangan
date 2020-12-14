@@ -13,7 +13,7 @@ class PemasukanController extends Controller
 {
     public function index()
     {
-        $data = DB::table('pemasukan as a')->join('tb_sumber_pemasukan as b', 'a.sumber_pemasukan_id', '=', 'b.id')->get();
+        $data = DB::table('datapemasukan as a')->join('datadistributor as b', 'a.sumber_pemasukan_id', '=', 'b.id')->get();
         return view('pemasukan.pemasukan_index', compact('data'));
     }
 
@@ -21,7 +21,7 @@ class PemasukanController extends Controller
     public function yajra(Request $request)
     {
         DB::statement(DB::raw('set @rownum=0'));
-        $pemasukan = DB::table('pemasukan as a')->join('tb_sumber_pemasukan as b', 'a.sumber_pemasukan_id', '=', 'b.id')->select([
+        $pemasukan = DB::table('datapemasukan as a')->join('datadistributor as b', 'a.sumber_pemasukan_id', '=', 'b.id')->select([
             DB::raw('@rownum  := @rownum  + 1 AS rownum'),
             'a.pemasukan_id',
             'b.nama',
@@ -55,7 +55,7 @@ class PemasukanController extends Controller
         return $datatables->make(true);
     }
     public function add(){
-        $pemasukan =  DB::table('tb_sumber_pemasukan')->get();
+        $pemasukan =  DB::table('datadistributor')->get();
         return view('pemasukan.pemasukan_add',compact('pemasukan'));
     }
 
@@ -66,7 +66,7 @@ class PemasukanController extends Controller
             'tanggal'=>'required',
             'keterangan'=>'required'
         ]);
-        DB::table('pemasukan')->insert([
+        DB::table('datapemasukan')->insert([
             'pemasukan_id'=>Uuid::generate(4),
             'sumber_pemasukan_id'=>$request->sumber_pemasukan_id,
             'nominal'=>$request->nominal,
@@ -79,8 +79,8 @@ class PemasukanController extends Controller
     }
 
     public function edit($id){
-        $data = DB::table('pemasukan')->where('pemasukan_id',$id)->first();
-        $pemasukan =  DB::table('tb_sumber_pemasukan')->get();
+        $data = DB::table('datapemasukan')->where('pemasukan_id',$id)->first();
+        $pemasukan =  DB::table('datadistributor')->get();
         return view('pemasukan.pemasukan_edit',compact('data','pemasukan'));
     }
 
@@ -92,7 +92,7 @@ class PemasukanController extends Controller
             'keterangan'=>'required'
         ]);
 
-        DB::table('pemasukan')->where('pemasukan_id',$id)->update([
+        DB::table('datapemasukan')->where('pemasukan_id',$id)->update([
             'sumber_pemasukan_id'=>$request->sumber_pemasukan_id,
             'nominal'=>$request->nominal,
             'tanggal'=>date('Y-m-d',strtotime($request->tanggal)),
@@ -102,7 +102,7 @@ class PemasukanController extends Controller
         return redirect('pemasukan');
     }
     public function delete($id){
-        DB::table('pemasukan')->where('pemasukan_id',$id)->delete();
+        DB::table('datapemasukan')->where('pemasukan_id',$id)->delete();
         Alert::info('data', ' telat hapus');
         return redirect('pemasukan');
     }

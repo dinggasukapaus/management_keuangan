@@ -8,7 +8,7 @@
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Keuangan</li>
+          <li class="breadcrumb-item active" aria-current="page">pemasukan</li>
         </ol>
       </nav>
     </div>
@@ -19,7 +19,7 @@
     <div class="card-header border-0">
       <div class="row">
         <div class="col-6">
-          <h3 class="mb-0">Inline actions</h3>
+          <h3 class="mb-0">data pemasukan</h3>
         </div>
         <div class="col-6 text-right">
           <a href="#" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
@@ -117,7 +117,7 @@
         columns: [
             // or just disable search since it's not really searchable. just add searchable:false
             {data: 'rownum', name: 'rownum'},
-            {data: 'nama', name: 'nama'},
+            {data: 'keterangan', name: 'keterangan'},
             {data: 'nominal', name: 'nominal'},
             {data: 'tanggal', name: 'tanggal'},
             {data: 'keterangan', name: 'keterangan'},

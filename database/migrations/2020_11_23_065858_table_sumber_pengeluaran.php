@@ -13,7 +13,7 @@ class TableSumberPengeluaran extends Migration
      */
     public function up()
     {
-        Schema::create('tb_pengeluaran', function (Blueprint $table) {
+        Schema::create('datapengeluaran', function (Blueprint $table) {
             $table->string('pengeluaran_id', 40);
             $table->integer('nominal_luar');
             $table->datetime('tanggal_pengeluaran');
@@ -31,6 +31,6 @@ class TableSumberPengeluaran extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_pengeluaran');
+        Schema::dropIfExists('datapengeluaran');
     }
 }

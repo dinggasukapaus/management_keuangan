@@ -76,27 +76,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
-                <i class="ni ni-money-coins text-yellow"></i>
-                <span class="nav-link-text">Keuangan</span>
+              <a class="nav-link" href="{{ url('sumber-pemasukan') }}" >
+                <i class="ni ni-user-run text-yellow"></i>
+                <span class="nav-link-text">Distributor</span>
               </a>
-              <div class="collapse" id="navbar-examples">
-                <ul class="nav nav-sm flex-column">
-                  <li class="nav-item">
-                    <a  href="{{ url('sumber-pemasukan') }}" class="nav-link{{ (request()->is('sumber-pemasukan')) ? ' active' : '' }}">
-                        <i class="fa fa-share" style="color:green" aria-hidden="true"></i>
-                        <span class="nav-link-text">sumber pemasukan</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fa fa-reply" style="color:red" aria-hidden="true"></i>
-                      <span class="sidenav-normal"> sumber pengeluaran </span>
-                    </a>
-                  </li>
-
-                </ul>
-              </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#navbar-components" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-components">

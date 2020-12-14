@@ -23,6 +23,13 @@
           <input value="{{ $data->nama }}" type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
         </div>
         <div class="form-group">
+          <input value="{{ $data->nohp }}" type="text" name="nohp" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="exampleFormControlTextarea2">alamat</label>
+            <textarea name="alamat" class="form-control" id="exampleFormControlTextarea2" rows="3" resize="none">{{ $data->alamat }}</textarea>
+          </div>
+        <div class="form-group">
           <input type="submit" class="btn btn-info" value="simpan" >
         </div>
       </div>

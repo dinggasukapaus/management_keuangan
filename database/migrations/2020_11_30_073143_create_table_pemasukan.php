@@ -14,10 +14,11 @@ class CreateTablePemasukan extends Migration
      */
     public function up()
     {
-        Schema::create('pemasukan', function (Blueprint $table) {
+        Schema::create('datapemasukan', function (Blueprint $table) {
             $table->string('pemasukan_id', 40);
             $table->string('sumber_pemasukan_id');
-            $table->integer('nominal');
+            $table->integer('total_pemasukan');
+            $table->integer('jumlah');
             $table->datetime('tanggal');
             $table->text('keterangan');
 
@@ -25,7 +26,7 @@ class CreateTablePemasukan extends Migration
 
             //relasi table sumber pemasukan dengan pemasukan
             $table->foreign('sumber_pemasukan_id')
-                ->references('id')->on('tb_sumber_pemasukan')
+                ->references('id')->on('datadistributor')
                 //jika ada fild yang suda h mengarah ke table sumber
                 //maka record pada table tersebut tidak dapat dihapus
                 ->onDelete('restrict');
@@ -39,6 +40,6 @@ class CreateTablePemasukan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pemasukan');
+        Schema::dropIfExists('datapemasukan');
     }
 }

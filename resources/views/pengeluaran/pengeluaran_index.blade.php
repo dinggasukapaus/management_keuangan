@@ -19,14 +19,14 @@
     <div class="card-header border-0">
       <div class="row">
         <div class="col-6">
-          <h3 class="mb-0">Inline actions</h3>
+          <h3 class="mb-0">data pengeluaran</h3>
         </div>
         <div class="col-6 text-right">
           <a href="#" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
             <span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
             <span class="btn-inner--text">Export</span>
           </a>
-          <a href="{{ url('pengeluaran/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah pemasukan">
+          <a href="{{ url('pengeluaran/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah pengeluaran">
             <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
     <span class="btn-inner--text">tambah pengeluaran</span>
           </a>
@@ -50,9 +50,18 @@
             @foreach ($data as $i=>$item)
                 <tr>
                     <td>{{ $i+1 }}</td>
-                    <td>{{ $item->nominal_luar }}</td>
-                    <td>{{ $item->tanggal_pengeluaran }}</td>
+                    <td>Rp. {{ number_format($item->nominal_luar,0) }}</td>
+                    <td>{{ date('d M Y',strtotime($item->tanggal_pengeluaran)) }}</td>
                     <td>{{ $item->keterangan }}</td>
+                    <td>
+                        <a href="{{ url('pengeluaran/'.$item->pengeluaran_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
+                            <i class="fas fa-user-edit"></i>
+                        </a>
+                        |
+                        <a sumber-id="{{ $item->pengeluaran_id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('pengeluaran/'.$item->pengeluaran_id) }}" data-toggle="tooltip" data-original-title="Delete sumber">
+                            <i style="color: red" class="fas fa-trash"></i>
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -20,7 +20,7 @@
 -   [x] dashboard
 -   [ ] pembagian menu untul setiap role
 -   [ ] management keuangan
--   [ ] management distributor
+-   [x] management distributor
 -   [ ] management pegawai
 -   [ ] management jadwal pertemuan && management produksi
 -   [ ] data rekap

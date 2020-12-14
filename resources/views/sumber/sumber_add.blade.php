@@ -18,8 +18,27 @@
     @csrf
     <div class="row">
       <div class="col">
+
         <div class="form-group">
-          <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="pemasukan ..">
+            <label class="form-control-label" for="exampleFormControlTextarea2">nama</label>
+          <input type="text" name="nama" class="form-control" id="exampleFormControlInput1" placeholder="nama...">
+          @error('nama')
+          <div class="alert-danger">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="exampleFormControlTextarea2">no hp</label>
+          <input type="number" name="nohp" class="form-control" id="exampleFormControlInput1" placeholder="masukkan angka">
+          @error('nohp')
+          <div class="alert-danger">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="exampleFormControlTextarea2">alamat</label>
+            <textarea name="alamat" class="form-control" id="exampleFormControlTextarea2" rows="3" resize="none"></textarea>
+            @error('alamat')
+          <div class="alert-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-info" value="simpan" >

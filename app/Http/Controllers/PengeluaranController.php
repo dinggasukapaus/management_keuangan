@@ -10,7 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class PengeluaranController extends Controller
 {
     public function index(){
-        $data = DB::table('tb_pengeluaran')->get();
+        $data = DB::table('datapengeluaran')->get();
         return view('pengeluaran.pengeluaran_index',compact('data'));
     }
 
@@ -27,7 +27,7 @@ class PengeluaranController extends Controller
             'keterangan'=>'required'
         ]);
 
-       DB::table('tb_pengeluaran')->insert([
+       DB::table('datapengeluaran')->insert([
             'pengeluaran_id' =>\Uuid::generate(4),
             'nominal_luar' =>$request->nominal_luar,
             'tanggal_pengeluaran' =>date('Y-m-d',strtotime($request->tanggal_pengeluaran)),
@@ -36,6 +36,34 @@ class PengeluaranController extends Controller
 
 
         Alert::success('selamat pengeluaran',' telat ditambah');
+        return redirect('pengeluaran');
+    }
+
+    public function edit($id){
+        $data = DB::table('datapengeluaran')->where('pengeluaran_id',$id)->first();
+
+        return view('pengeluaran.pengeluaran_edit',compact('data'));
+    }
+
+    public function update(Request $request,$id){
+        $this->validate($request,[
+            'nominal_luar'=>'required|numeric',
+            'tanggal_pengeluaran'=>'required',
+            'keterangan'=>'required'
+        ]);
+
+        DB::table('datapengeluaran')->where('pengeluaran_id',$id)->update([
+            'nominal_luar'=>$request->nominal_luar,
+            'tanggal_pengeluaran'=>date('Y-m-d',strtotime($request->tanggal_pengeluaran)),
+            'keterangan'=>$request->keterangan
+        ]);
+        toast('data anda berhasil di update !', 'success');
+
+        return redirect('pengeluaran');
+    }
+    public function delete($id){
+        DB::table('datapengeluaran')->where('pengeluaran_id',$id)->delete();
+        Alert::info('data', ' telat hapus');
         return redirect('pengeluaran');
     }
 }
