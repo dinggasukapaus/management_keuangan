@@ -6,7 +6,7 @@
       <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item active" aria-current="page">data distributor</li>
+          <li class="breadcrumb-item active" aria-current="page">data produksi</li>
         </ol>
       </nav>
     </div>
@@ -19,15 +19,15 @@
         <div class="card-header border-0">
             <div class="row">
                 <div class="col-6">
-                  <h3 class="mb-0">data distributor</h3>
+                  <h3 class="mb-0">data produksi</h3>
                 </div>
                 <div class="col-6 text-right">
-                    @role('admin')
-                  <a href="{{ url('sumber-pemasukan/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah distributor">
+                @role('admin')
+                  <a href="{{ url('produksi/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah distributor">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-            <span class="btn-inner--text">tambah distributor</span>
+            <span class="btn-inner--text">tambah produksi</span>
                   </a>
-                  @endrole
+                @endrole
                 </div>
               </div>
         </div>
@@ -37,34 +37,34 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort" data-sort="name">#</th>
-                <th scope="col" class="sort" data-sort="budget">nama</th>
-                <th scope="col" class="sort" data-sort="budget">no hp</th>
-                <th scope="col" class="sort" data-sort="budget">alamat</th>
-                <th scope="col" class="sort" data-sort="status">Create At</th>
+                <th scope="col" class="sort" data-sort="budget">produksi</th>
+                <th scope="col" class="sort" data-sort="budget">pengeluaran</th>
+                <th scope="col" class="sort" data-sort="budget">jumlah</th>
+                <th scope="col" class="sort" data-sort="status">tanggal</th>
                 @role('admin')
                 <th scope="col"><center>Action</center></th>
                 @endrole
               </tr>
             </thead>
             <tbody class="list">
-                @foreach ($sumber as $index=>$sb)
+                @foreach ($data as $i=>$item)
 
                 <tr>
-                    <td>{{ $index+1 }}</td>
-                    <td>{{ $sb->nama }}</td>
-                    <td>{{ $sb->nohp }}</td>
-                    <td>{{ $sb->alamat }}</td>
-                    <td>{{ date('m/d/Y',strtotime($sb->created_at)) }}</td>
+                    <td>{{ $i+1 }}</td>
+                    <td>{{ $item->produksi}}</td>
+                    <td>{{ $item->pengeluaran }}</td>
+                    <td>{{ $item->jumlah }}</td>
+                    <td>{{ date('d M Y',strtotime($item->tanggal)) }}</td>
                     @role('admin')
                     <td class="table-actions">
                         <center>
 
 
-                            <a href="{{ url('sumber-pemasukan/'.$sb->id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
+                            <a href="{{ url('produksi/'.$item->produksi_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit produksi">
                                 <i class="fas fa-user-edit"></i>
                             </a>
                             |
-                            <a sumber-id="{{ $sb->id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('sumber-pemasukan/'.$sb->id) }}" data-toggle="tooltip" data-original-title="Delete sumber">
+                            <a sumber-id="{{ $item->produksi_id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('produksi/'.$item->produksi_id) }}" data-toggle="tooltip" data-original-title="Delete produksi">
                                 <i style="color: red" class="fas fa-trash"></i>
                             </a>
 
@@ -121,7 +121,7 @@
             $('#btn-hapus').click(function(e){
             e.preventDefault();
             var id =$(this).attr('sumber-id');
-            var url = "{{ url('sumber-pemasukan') }}"+'/'+id;
+            var url = "{{ url('produksi') }}"+'/'+id;
             $('#idmodal').find('form').attr('action',url);
             $('#idmodal').modal();
         })

@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     {
         //? membuat column user
         $admin = User::create([
-            'name' => 'admin role',
+            'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456')
 
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
 
         //? membuat column user
         $user = User::create([
-            'name' => 'user role',
+            'name' => 'owner',
             'email' => 'user@gmail.com',
             'password' => bcrypt('123456')
 

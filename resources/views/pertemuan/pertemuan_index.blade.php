@@ -6,7 +6,7 @@
       <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item active" aria-current="page">data distributor</li>
+          <li class="breadcrumb-item active" aria-current="page">data pertemuan</li>
         </ol>
       </nav>
     </div>
@@ -19,15 +19,13 @@
         <div class="card-header border-0">
             <div class="row">
                 <div class="col-6">
-                  <h3 class="mb-0">data distributor</h3>
+                  <h3 class="mb-0">data pertemuan</h3>
                 </div>
                 <div class="col-6 text-right">
-                    @role('admin')
-                  <a href="{{ url('sumber-pemasukan/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah distributor">
+                  <a href="{{ url('pertemuan/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah distributor">
                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-            <span class="btn-inner--text">tambah distributor</span>
+            <span class="btn-inner--text">tambah pertemuan</span>
                   </a>
-                  @endrole
                 </div>
               </div>
         </div>
@@ -37,34 +35,31 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort" data-sort="name">#</th>
-                <th scope="col" class="sort" data-sort="budget">nama</th>
-                <th scope="col" class="sort" data-sort="budget">no hp</th>
-                <th scope="col" class="sort" data-sort="budget">alamat</th>
-                <th scope="col" class="sort" data-sort="status">Create At</th>
-                @role('admin')
+                <th scope="col" class="sort" data-sort="budget">keterangan</th>
+                <th scope="col" class="sort" data-sort="budget">tempat</th>
+                <th scope="col" class="sort" data-sort="budget">tanggal</th>
+                <th scope="col" class="sort" data-sort="status">waktu</th>
                 <th scope="col"><center>Action</center></th>
-                @endrole
               </tr>
             </thead>
             <tbody class="list">
-                @foreach ($sumber as $index=>$sb)
+                @foreach ($data as $i=>$item)
 
                 <tr>
-                    <td>{{ $index+1 }}</td>
-                    <td>{{ $sb->nama }}</td>
-                    <td>{{ $sb->nohp }}</td>
-                    <td>{{ $sb->alamat }}</td>
-                    <td>{{ date('m/d/Y',strtotime($sb->created_at)) }}</td>
-                    @role('admin')
+                    <td>{{ $i+1 }}</td>
+                    <td>{{ $item->keterangan}}</td>
+                    <td>{{ $item->tempat }}</td>
+                    <td>{{ date('d M Y',strtotime($item->tanggal)) }}</td>
+                    <td>{{ date('H:i:s',strtotime($item->waktu)) }}</td>
                     <td class="table-actions">
                         <center>
 
 
-                            <a href="{{ url('sumber-pemasukan/'.$sb->id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
+                            <a href="{{ url('pertemuan/'.$item->pertemuan_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit pertemuan">
                                 <i class="fas fa-user-edit"></i>
                             </a>
                             |
-                            <a sumber-id="{{ $sb->id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('sumber-pemasukan/'.$sb->id) }}" data-toggle="tooltip" data-original-title="Delete sumber">
+                            <a sumber-id="{{ $item->pertemuan_id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('pertemuan/'.$item->pertemuan_id) }}" data-toggle="tooltip" data-original-title="Delete pertemuan">
                                 <i style="color: red" class="fas fa-trash"></i>
                             </a>
 
@@ -72,7 +67,6 @@
 
 
                         </td>
-                    @endrole
 
 
 
@@ -121,7 +115,7 @@
             $('#btn-hapus').click(function(e){
             e.preventDefault();
             var id =$(this).attr('sumber-id');
-            var url = "{{ url('sumber-pemasukan') }}"+'/'+id;
+            var url = "{{ url('pertemuan') }}"+'/'+id;
             $('#idmodal').find('form').attr('action',url);
             $('#idmodal').modal();
         })

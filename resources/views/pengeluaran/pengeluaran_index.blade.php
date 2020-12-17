@@ -6,9 +6,8 @@
       <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
       <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-          <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item active" aria-current="page">pengeluaran</li>
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item active" aria-current="page">data pengeluaran</li>
         </ol>
       </nav>
     </div>
@@ -22,14 +21,12 @@
           <h3 class="mb-0">data pengeluaran</h3>
         </div>
         <div class="col-6 text-right">
-          <a href="#" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="Edit product">
-            <span class="btn-inner--icon"><i class="fas fa-user-edit"></i></span>
-            <span class="btn-inner--text">Export</span>
-          </a>
+        @role('admin')
           <a href="{{ url('pengeluaran/add') }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="tambah pengeluaran">
             <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
     <span class="btn-inner--text">tambah pengeluaran</span>
           </a>
+        @endrole
         </div>
 
       </div>
@@ -43,7 +40,9 @@
             <th>Nominal</th>
             <th>Tanggal</th>
             <th>Keterangan</th>
+            @role('admin')
             <th>aksi</th>
+            @endrole
           </tr>
         </thead>
         <tbody>
@@ -53,6 +52,7 @@
                     <td>Rp. {{ number_format($item->nominal_luar,0) }}</td>
                     <td>{{ date('d M Y',strtotime($item->tanggal_pengeluaran)) }}</td>
                     <td>{{ $item->keterangan }}</td>
+                    @role('admin')
                     <td>
                         <a href="{{ url('pengeluaran/'.$item->pengeluaran_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
                             <i class="fas fa-user-edit"></i>
@@ -62,6 +62,7 @@
                             <i style="color: red" class="fas fa-trash"></i>
                         </a>
                     </td>
+                    @endrole
                 </tr>
             @endforeach
         </tbody>

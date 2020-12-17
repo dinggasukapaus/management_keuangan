@@ -12,14 +12,19 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+ return view('auth.login');
+});
+
+Auth::routes();
+
+Route::get('/home', 'DashboardController@index')->name('home');
 
 
 //! membatasi akses route dasboard
 //! jadi route '/' akan dibatasi oleh middleware
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    });
+Route::group(['middleware' => ['role:admin']], function () {
+
 
     //manajemen sumber pemasukan
 
@@ -45,10 +50,61 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('pengeluaran/{id}','PengeluaranController@edit');
     Route::put('pengeluaran/{id}','PengeluaranController@update');
     Route::delete('pengeluaran/{id}','PengeluaranController@delete');
+
+    //manajemen pegawai
+    Route::get('pegawai','PegawaiController@index');
+    Route::get('pegawai/add','PegawaiController@add');
+    Route::post('pegawai/add','PegawaiController@store');
+    Route::get('pegawai/{id}','PegawaiController@edit');
+    Route::put('pegawai/{id}','PegawaiController@update');
+    Route::delete('pegawai/{id}','PegawaiController@delete');
+
+     //manajemen produksi
+     Route::get('produksi','ProduksiController@index');
+     Route::get('produksi/add','ProduksiController@add');
+     Route::post('produksi/add','ProduksiController@store');
+     Route::get('produksi/{id}','ProduksiController@edit');
+     Route::put('produksi/{id}','ProduksiController@update');
+     Route::delete('produksi/{id}','ProduksiController@delete');
+
+     //manajemen pertemuan
+     Route::get('pertemuan','PertemuanController@index');
+     Route::get('pertemuan/add','PertemuanController@add');
+     Route::post('pertemuan/add','PertemuanController@store');
+     Route::get('pertemuan/{id}','PertemuanController@edit');
+     Route::put('pertemuan/{id}','PertemuanController@update');
+     Route::delete('pertemuan/{id}','PertemuanController@delete');
+
+     Route::get('laporan','LaporanController@index');
+     Route::get('laporan_cari','LaporanController@cari');
+});
+
+Route::group(['middleware' => ['role:user|admin']], function () {
+
+
+    //list sumber pemasukan
+    Route::get('sumber-pemasukan', 'SumberController@index');
+    //list pemasukan
+    Route::get('pemasukan', 'PemasukanController@index');
+    //list pengeluaran
+    Route::get('pengeluaran','PengeluaranController@index');
+    //list pegawai
+    Route::get('pegawai','PegawaiController@index');
+    //list produksi
+    Route::get('produksi','ProduksiController@index');
+    //list pertemuan
+    Route::get('pertemuan','PertemuanController@index');
+    Route::get('pertemuan/add','PertemuanController@add');
+    Route::post('pertemuan/add','PertemuanController@store');
+    Route::get('pertemuan/{id}','PertemuanController@edit');
+    Route::put('pertemuan/{id}','PertemuanController@update');
+    Route::delete('pertemuan/{id}','PertemuanController@delete');
+
+    Route::get('laporan','LaporanController@index');
+    Route::get('laporan_cari','LaporanController@cari');
+
 });
 
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

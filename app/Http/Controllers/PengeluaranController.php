@@ -35,7 +35,7 @@ class PengeluaranController extends Controller
         ]);
 
 
-        Alert::success('selamat pengeluaran',' telat ditambah');
+        Alert::success('selamat' ,'anda berhasil mengimputkan');
         return redirect('pengeluaran');
     }
 

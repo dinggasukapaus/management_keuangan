@@ -26,7 +26,8 @@ class PemasukanController extends Controller
             'a.pemasukan_id',
             'b.nama',
             'a.sumber_pemasukan_id',
-            'a.nominal',
+            'a.total_pemasukan',
+            'a.jumlah',
             'a.tanggal',
             'a.keterangan'
         ]);
@@ -41,11 +42,11 @@ class PemasukanController extends Controller
         <a sumber-id="{{ $sb->id }}" id="btn-hapus" class="table-action table-action-delete" href="'.$url_hapus.'" data-toggle="tooltip" data-original-title="Delete sumber">
             <i style="color: red" class="fas fa-trash"></i>
         </a>';
-        })->editColumn('nominal',function($ps){
-            $nominal =$ps->nominal;
-            $nominal = 'Rp. '.number_format($nominal,0);
-            $nominal = str_replace(',','.',$nominal);
-            return $nominal;
+        })->editColumn('total_pemasukan',function($ps){
+            $total_pemasukan =$ps->total_pemasukan;
+            $total_pemasukan = 'Rp. '.number_format($total_pemasukan,0);
+            $total_pemasukan = str_replace(',','.',$total_pemasukan);
+            return $total_pemasukan;
         });
 
         if ($keyword = $request->get('search')['value']) {
@@ -62,18 +63,20 @@ class PemasukanController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'sumber_pemasukan_id'=>'required',
-            'nominal'=>'required',
+            'total_pemasukan'=>'required|numeric',
+            'jumlah'=>'required|numeric',
             'tanggal'=>'required',
             'keterangan'=>'required'
         ]);
         DB::table('datapemasukan')->insert([
             'pemasukan_id'=>Uuid::generate(4),
             'sumber_pemasukan_id'=>$request->sumber_pemasukan_id,
-            'nominal'=>$request->nominal,
+            'total_pemasukan'=>$request->total_pemasukan*$request->jumlah,
+            'jumlah'=>$request->jumlah,
             'tanggal'=>date('Y-m-d',strtotime($request->tanggal)),
             'keterangan'=>$request->keterangan
         ]);
-        Alert::success('selamat' ,'telat ditambah');
+        Alert::success('selamat' ,'anda berhasil mengimputkan');
 
         return redirect('pemasukan');
     }
@@ -87,18 +90,20 @@ class PemasukanController extends Controller
     public function update(Request $request,$id){
         $this->validate($request,[
             'sumber_pemasukan_id'=>'required',
-            'nominal'=>'required',
+            'total_pemasukan'=>'required|numeric',
+            'jumlah'=>'required|numeric',
             'tanggal'=>'required',
             'keterangan'=>'required'
         ]);
 
         DB::table('datapemasukan')->where('pemasukan_id',$id)->update([
             'sumber_pemasukan_id'=>$request->sumber_pemasukan_id,
-            'nominal'=>$request->nominal,
+            'total_pemasukan'=>$request->total_pemasukan*$request->jumlah,
+            'jumlah'=>$request->jumlah,
             'tanggal'=>date('Y-m-d',strtotime($request->tanggal)),
             'keterangan'=>$request->keterangan
         ]);
-        toast('data anda berhasil di update !', 'success');
+        toast('semalat anda telah berhasil mengubah data', 'success');
         return redirect('pemasukan');
     }
     public function delete($id){

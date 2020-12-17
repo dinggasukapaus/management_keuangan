@@ -32,7 +32,11 @@
             </div>
         <div class="form-group">
             <label class="form-control-label" for="exampleFormControlInput1">Nominal</label>
-          <input type="number" name="nominal" value="{{ $data->nominal }}" class="form-control" id="exampleFormControlInput1" placeholder="100000...">
+          <input type="number" name="total_pemasukan" value="{{ $data->total_pemasukan }}" class="form-control" id="exampleFormControlInput1" placeholder="100000...">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="exampleFormControlInput1">jumlah</label>
+          <input type="number" name="jumlah" value="{{ $data->jumlah }}" class="form-control" id="exampleFormControlInput1" placeholder="100000...">
         </div>
         <div class="form-group">
             <label class="form-control-label" for="exampleFormControlInput1">Tanggal</label>
@@ -40,7 +44,7 @@
 
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="exampleFormControlTextarea2">Unresizable textarea</label>
+            <label class="form-control-label" for="exampleFormControlTextarea2">keterangan</label>
             <textarea name="keterangan"  class="form-control" id="exampleFormControlTextarea2" rows="3" resize="none">{{  $data->keterangan }}</textarea>
           </div>
         <div class="form-group">

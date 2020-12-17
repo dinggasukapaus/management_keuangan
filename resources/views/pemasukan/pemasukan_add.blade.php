@@ -23,13 +23,17 @@
               <select name="sumber_pemasukan_id" class="form-control" id="exampleFormControlSelect1">
                 <option selected="" disabled="">Sumber pemasukan</option>
                 @foreach ($pemasukan as $pm)
-                    <option value="{{ $pm->id }}">{{ $pm->keterangan }}</option>
+                    <option value="{{ $pm->id }}">{{ $pm->nama }}</option>
                 @endforeach
               </select>
             </div>
         <div class="form-group">
             <label class="form-control-label" for="exampleFormControlInput1">Nominal</label>
-          <input type="number" name="nominal" class="form-control" id="exampleFormControlInput1" placeholder="100000...">
+          <input readonly type="number" value="5000" name="total_pemasukan" class="form-control" id="exampleFormControlInput1" placeholder="100000...">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="exampleFormControlInput1">jumalah</label>
+          <input type="number" name="jumlah" class="form-control" id="exampleFormControlInput1" placeholder="1...">
         </div>
         <div class="form-group">
             <label class="form-control-label" for="exampleFormControlInput1">Tanggal</label>
@@ -37,7 +41,7 @@
 
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="exampleFormControlTextarea2">Unresizable textarea</label>
+            <label class="form-control-label" for="exampleFormControlTextarea2">keterangan</label>
             <textarea name="keterangan" class="form-control" id="exampleFormControlTextarea2" rows="3" resize="none"></textarea>
           </div>
         <div class="form-group">

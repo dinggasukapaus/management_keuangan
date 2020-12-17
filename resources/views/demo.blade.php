@@ -20,9 +20,3 @@
 
 @endsection
 
-
-
-
-
-
-<b></b>
