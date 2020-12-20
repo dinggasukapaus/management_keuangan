@@ -20,21 +20,21 @@
       <div class="col">
 
         <div class="form-group">
-            <label class="form-control-label" for="exampleFormControlTextarea2">nama</label>
+            <label class="form-control-label" for="exampleFormControlTextarea2">Nama produksi</label>
           <input type="text" name="produksi" class="form-control" id="exampleFormControlInput1" placeholder="produksi...">
           @error('produksi')
           <div class="alert-danger">{{ $message }}</div>
           @enderror
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="exampleFormControlTextarea2">pengeluaran</label>
+            <label class="form-control-label" for="exampleFormControlTextarea2">Pengeluaran</label>
           <input readonly type="number" value="2000" name="pengeluaran" class="form-control" id="exampleFormControlInput1" placeholder="masukkan angka">
           @error('pengeluaran')
           <div class="alert-danger">{{ $message }}</div>
           @enderror
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="exampleFormControlTextarea2">jumlah</label>
+            <label class="form-control-label" for="exampleFormControlTextarea2">Jumlah</label>
           <input type="number" name="jumlah" class="form-control" id="exampleFormControlInput1" placeholder="masukkan angka">
           @error('jumlah')
           <div class="alert-danger">{{ $message }}</div>

@@ -22,7 +22,6 @@ Route::get('/home', 'DashboardController@index')->name('home');
 
 
 //! membatasi akses route dasboard
-//! jadi route '/' akan dibatasi oleh middleware
 Route::group(['middleware' => ['role:admin']], function () {
 
 
@@ -86,6 +85,7 @@ Route::group(['middleware' => ['role:user|admin']], function () {
     Route::get('sumber-pemasukan', 'SumberController@index');
     //list pemasukan
     Route::get('pemasukan', 'PemasukanController@index');
+    Route::get('pemasukan/yajra', 'PemasukanController@yajra');
     //list pengeluaran
     Route::get('pengeluaran','PengeluaranController@index');
     //list pegawai

@@ -122,7 +122,7 @@
               <li class="nav-item">
                 <a class="nav-link{{ (request()->is('pertemuan')) ? ' active' : '' }}" href="{{ url('pertemuan') }}">
                   <i class="ni ni-calendar-grid-58 text-blue"></i>
-                  <span class="nav-link-text">Jadwal pertemuan</span>
+                  <span class="nav-link-text">Pertemuan</span>
                 </a>
               </li>
               <li class="nav-item">

@@ -40,7 +40,7 @@
 
         </div>
         <div class="form-group">
-            <label for="example-time-input" class="form-control-label">Time</label>
+            <label for="example-time-input" class="form-control-label">Waktu</label>
             <input class="form-control" name="waktu" type="time" id="example-time-input">
           </div>
 

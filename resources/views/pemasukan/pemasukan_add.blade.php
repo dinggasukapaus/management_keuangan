@@ -6,8 +6,7 @@
       <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
       <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-          <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active" aria-current="page">tambah pemasukan</li>
         </ol>
       </nav>
@@ -32,7 +31,7 @@
           <input readonly type="number" value="5000" name="total_pemasukan" class="form-control" id="exampleFormControlInput1" placeholder="100000...">
         </div>
         <div class="form-group">
-            <label class="form-control-label" for="exampleFormControlInput1">jumalah</label>
+            <label class="form-control-label" for="exampleFormControlInput1">jumlah</label>
           <input type="number" name="jumlah" class="form-control" id="exampleFormControlInput1" placeholder="1...">
         </div>
         <div class="form-group">

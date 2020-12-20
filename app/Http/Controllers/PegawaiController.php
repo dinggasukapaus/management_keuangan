@@ -26,7 +26,12 @@ class PegawaiController extends Controller
             'nohp'=>'required|digits_between:1,12|numeric',
             'jabatan'=>'required',
             'alamat'=>'required'
-        ]);
+        ],
+        [
+            //?
+            'required'=>'wajib di isi',
+        ]
+    );
 
         DB::table('datapegawai')->insert([
             'pegawai_id'=>Uuid::generate(4),
