@@ -63,11 +63,16 @@ class PemasukanController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'sumber_pemasukan_id'=>'required',
-            'total_pemasukan'=>'required|numeric',
-            'jumlah'=>'required|numeric',
-            'tanggal'=>'required',
+            'total_pemasukan'=>'required|numeric|gt:1000|max:100000',
+            'jumlah'=>'required|numeric|min:1',
+            'tanggal'=>'required|date|after:tomorrow',
             'keterangan'=>'required'
-        ]);
+        ],
+        [
+            'gt'=>'minimal Rp.1000',
+            'max'=>'maximal Rp.100000'
+        ]
+    );
         DB::table('datapemasukan')->insert([
             'pemasukan_id'=>Uuid::generate(4),
             'sumber_pemasukan_id'=>$request->sumber_pemasukan_id,
@@ -90,11 +95,16 @@ class PemasukanController extends Controller
     public function update(Request $request,$id){
         $this->validate($request,[
             'sumber_pemasukan_id'=>'required',
-            'total_pemasukan'=>'required|numeric',
-            'jumlah'=>'required|numeric',
-            'tanggal'=>'required',
+            'total_pemasukan'=>'required|numeric|gt:1000|max:100000',
+            'jumlah'=>'required|numeric|min:1',
+            'tanggal'=>'required|date|after:tomorrow',
             'keterangan'=>'required'
-        ]);
+        ],
+        [
+            'gt'=>'minimal Rp.1000',
+            'max'=>'maximal Rp.100000'
+        ]
+    );
 
         DB::table('datapemasukan')->where('pemasukan_id',$id)->update([
             'sumber_pemasukan_id'=>$request->sumber_pemasukan_id,
@@ -107,6 +117,8 @@ class PemasukanController extends Controller
         return redirect('pemasukan');
     }
     public function delete($id){
+
+
         DB::table('datapemasukan')->where('pemasukan_id',$id)->delete();
         Alert::info('data', ' telat hapus');
         return redirect('pemasukan');

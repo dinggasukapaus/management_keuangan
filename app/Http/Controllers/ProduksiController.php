@@ -22,11 +22,16 @@ class ProduksiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'produksi'=>'required',
-            'pengeluaran'=>'required|numeric',
-            'jumlah'=>'required|numeric',
-            'tanggal'=>'required'
-        ]);
+            'produksi'=>'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'pengeluaran'=>'required|numeric|gt:1000|max:100000',
+            'jumlah'=>'required|numeric|min:1',
+            'tanggal'=>'required|date|unique:dataproduksi'
+        ],
+        [
+            'max'=>'maximal Rp.100000',
+            'gt'=>'minimal Rp.1000'
+        ]
+    );
 
         DB::table('dataproduksi')->insert([
             'produksi_id'=>Uuid::generate(4),
@@ -49,11 +54,16 @@ class ProduksiController extends Controller
     public function update(Request $request,$id)
     {
         $this->validate($request,[
-            'produksi'=>'required',
-            'pengeluaran'=>'required|numeric',
-            'jumlah'=>'required|numeric',
-            'tanggal'=>'required'
-        ]);
+            'produksi'=>'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'pengeluaran'=>'required|numeric|gt:1000|max:100000',
+            'jumlah'=>'required|numeric|min:1',
+            'tanggal'=>'required|date'
+        ],
+        [
+            'max'=>'maximal Rp.100000',
+            'gt'=>'minimal Rp.1000'
+        ]
+    );
 
         DB::table('dataproduksi')->where('produksi_id',$id)->update([
             'produksi'=>$request->produksi,

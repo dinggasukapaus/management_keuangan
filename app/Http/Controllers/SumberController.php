@@ -32,8 +32,8 @@ class SumberController extends Controller
 
 
         $this->validate($request, [
-            'nama' => 'required',
-            'nohp' => 'required|digits_between:1,12|numeric',
+            'nama' => 'required|min:0|unique:datadistributor|max:30|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'nohp' => 'required|numeric|digits_between:2,14',
             'alamat' => 'required'
         ]);
 
@@ -65,8 +65,8 @@ class SumberController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama' => 'required',
-            'nohp' => 'required',
+            'nama' => 'required|min:0|max:30|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'nohp' => 'required|numeric|max:14',
             'alamat' => 'required'
         ]);
 
@@ -88,6 +88,10 @@ class SumberController extends Controller
 
     public function delete($id)
     {
+        $total_pemasukan = DB::table('datapemasukan')->get()->sum('total_pemasukan');
+        if ($total_pemasukan) {
+        return back()->withMessage('tidak bisa delete: karena masih ada data yang terikat');
+        }
         DB::table('datadistributor')->where('id', $id)->delete();
         Alert::info('data', ' telat hapus');
         return redirect('sumber-pemasukan');

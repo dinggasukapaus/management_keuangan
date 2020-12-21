@@ -9,6 +9,7 @@
           <li class="breadcrumb-item active" aria-current="page">pemasukan</li>
         </ol>
       </nav>
+
     </div>
 
   </div>
@@ -85,6 +86,7 @@
         $('#table-pemasukan').DataTable({
         processing: true,
         serverSide: true,
+        searching : false,
         ajax: "{{ url('pemasukan/yajra') }}",
         columns: [
             // or just disable search since it's not really searchable. just add searchable:false

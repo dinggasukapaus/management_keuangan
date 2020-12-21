@@ -22,8 +22,8 @@ class PengeluaranController extends Controller
 
     public function store(Request $request){
         $this->validate($request,[
-            'nominal_luar'=>'required',
-            'tanggal_pengeluaran'=>'required',
+            'nominal_luar'=>'required|numeric|min:1',
+            'tanggal_pengeluaran'=>'required|after:tomorrow',
             'keterangan'=>'required'
         ]);
 
@@ -47,8 +47,8 @@ class PengeluaranController extends Controller
 
     public function update(Request $request,$id){
         $this->validate($request,[
-            'nominal_luar'=>'required|numeric',
-            'tanggal_pengeluaran'=>'required',
+            'nominal_luar'=>'required|numeric|min:1',
+            'tanggal_pengeluaran'=>'required|after:tomorrow',
             'keterangan'=>'required'
         ]);
 

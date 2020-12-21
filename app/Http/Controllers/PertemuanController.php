@@ -24,7 +24,7 @@ class PertemuanController extends Controller
         $this->validate($request,[
             'keterangan'=>'required|string',
             'tempat'=>'required',
-            'tanggal'=>'required',
+            'tanggal'=>'required|unique:datapertemuan|date|after:tomorrow',
             'waktu'=>'required'
         ]);
 
@@ -51,7 +51,7 @@ class PertemuanController extends Controller
         $this->validate($request,[
             'keterangan'=>'required|string',
             'tempat'=>'required',
-            'tanggal'=>'required',
+            'tanggal'=>'required|unique:datapertemuan|date',
             'waktu'=>'required'
         ]);
 

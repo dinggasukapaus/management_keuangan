@@ -22,8 +22,8 @@ class PegawaiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'nama'=>'required',
-            'nohp'=>'required|digits_between:1,12|numeric',
+            'nama'=>'required|unique:datapegawai|min:6|max:30|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'nohp'=>'required|digits_between:0,14|numeric',
             'jabatan'=>'required',
             'alamat'=>'required'
         ],
@@ -54,8 +54,8 @@ class PegawaiController extends Controller
     public function update(Request $request,$id)
     {
         $this->validate($request,[
-            'nama'=>'required',
-            'nohp'=>'required|digits_between:1,12|numeric',
+            'nama'=>'required|min:6|max:30|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
+            'nohp'=>'required|digits_between:0,14|numeric',
             'jabatan'=>'required',
             'alamat'=>'required'
         ]);
