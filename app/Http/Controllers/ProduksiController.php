@@ -41,7 +41,7 @@ class ProduksiController extends Controller
             'tanggal'=>date('Y-m-d',strtotime($request->tanggal)),
         ]);
 
-        Alert::success('selamat' ,'anda berhasil menginputkan');
+        Alert::success('data' ,'berhasil di tambahkan');
 
         return redirect('produksi');
 
@@ -71,7 +71,7 @@ class ProduksiController extends Controller
             'jumlah'=>$request->jumlah,
             'tanggal'=>date('Y-m-d',strtotime($request->tanggal)),
         ]);
-        toast('selamat anda telah berhasil mengubah data', 'success');
+        toast('data berhasil di ubah', 'success');
         return redirect('produksi');
 
     }

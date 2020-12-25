@@ -23,7 +23,7 @@ class PengeluaranController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'nominal_luar'=>'required|numeric|min:1',
-            'tanggal_pengeluaran'=>'required|after:tomorrow',
+            'tanggal_pengeluaran'=>'required|date',
             'keterangan'=>'required'
         ]);
 
@@ -48,7 +48,7 @@ class PengeluaranController extends Controller
     public function update(Request $request,$id){
         $this->validate($request,[
             'nominal_luar'=>'required|numeric|min:1',
-            'tanggal_pengeluaran'=>'required|after:tomorrow',
+            'tanggal_pengeluaran'=>'required',
             'keterangan'=>'required'
         ]);
 
@@ -57,7 +57,7 @@ class PengeluaranController extends Controller
             'tanggal_pengeluaran'=>date('Y-m-d',strtotime($request->tanggal_pengeluaran)),
             'keterangan'=>$request->keterangan
         ]);
-        toast('data anda berhasil di update !', 'success');
+        toast('Selamat anda telah berhasil mengubah data', 'success');
 
         return redirect('pengeluaran');
     }

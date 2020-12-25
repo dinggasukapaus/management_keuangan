@@ -36,7 +36,7 @@
       <table id="table-pemasukan" class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Sumber</th>
             <th>Nominal</th>
             <th>jumlah</th>
@@ -60,7 +60,7 @@
           </button>
         </div>
         <div class="modal-body">
-         apakah anda yakin menghapus data
+            Apakah anda yakin akan menghapus data
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

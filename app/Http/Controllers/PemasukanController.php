@@ -34,7 +34,7 @@ class PemasukanController extends Controller
         $datatables = Datatables::of($pemasukan)
         ->addColumn('action',function($aksi){
             //url
-            $url_edit =  url('pemasukan/'.$aksi->pemasukan_id) ;
+            $url_edit =  url('pemasukan/'.$aksi->pemasukan_id.'/edit') ;
             $url_hapus =  url('pemasukan/'.$aksi->pemasukan_id) ;
             return '<a href="'.$url_edit.'" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
             <i class="fas fa-user-edit"></i>
@@ -65,7 +65,7 @@ class PemasukanController extends Controller
             'sumber_pemasukan_id'=>'required',
             'total_pemasukan'=>'required|numeric|gt:1000|max:100000',
             'jumlah'=>'required|numeric|min:1',
-            'tanggal'=>'required|date|after:tomorrow',
+            'tanggal'=>'required|date',
             'keterangan'=>'required'
         ],
         [
@@ -97,7 +97,7 @@ class PemasukanController extends Controller
             'sumber_pemasukan_id'=>'required',
             'total_pemasukan'=>'required|numeric|gt:1000|max:100000',
             'jumlah'=>'required|numeric|min:1',
-            'tanggal'=>'required|date|after:tomorrow',
+            'tanggal'=>'required|date',
             'keterangan'=>'required'
         ],
         [
@@ -113,7 +113,7 @@ class PemasukanController extends Controller
             'tanggal'=>date('Y-m-d',strtotime($request->tanggal)),
             'keterangan'=>$request->keterangan
         ]);
-        toast('semalat anda telah berhasil mengubah data', 'success');
+        toast('selamat anda telah berhasil mengubah data', 'success');
         return redirect('pemasukan');
     }
     public function delete($id){

@@ -6,9 +6,15 @@
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active" aria-current="page">laporan</li>
+
         </ol>
-      </nav>
+    </nav>
+</div>
+@if (isset($pemasukan,$pengeluaran))
+    <div class="col-lg-6 col-5 text-right">
+        <a href="{{ url('export-rekap/'.$dari.'/'.$sampai) }}" class="btn btn-sm btn-success">Export</a>
     </div>
+    @endif
   </div>
 
   <form method="get" action="{{ url('laporan_cari') }}">
@@ -67,6 +73,10 @@
                       <h3 class="mb-0">data pemasukan</h3>
                     </div>
                     <div class="col-6 text-right">
+                        <a href="{{ url('export-pemasukan/'.$dari.'/'.$sampai) }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="export pemasukan">
+                            <span class="btn-inner--icon"><i class="ni ni-excel"></i></span>
+                    <span class="btn-inner--text">export pemasukan</span>
+                          </a>
 
                     </div>
 
@@ -78,7 +88,7 @@
                   <table id="table-pemasukan" class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                        <th>#</th>
+                        <th>No</th>
                         <th>tanggal</th>
                         <th>nominal</th>
                         <th>sumber</th>
@@ -94,9 +104,71 @@
 
                             </tr>
                         @endforeach
+                            <txr>
+                                <td colspan="4">
+                                    Total Rp.
+                                    <strong>
+                                        {{ number_format($pemasukan_total,0) }}
+                                    </strong>
+                                </td>
+                            </tr>
+                    </tbody>
+
+
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+@endif
+@if(isset($pengeluaran))
+
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
+                  <div class="row">
+                    <div class="col-6">
+                      <h3 class="mb-0">data pengeluaran</h3>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="{{ url('export-pengeluaran/'.$dari.'/'.$sampai) }}" class="btn btn-sm btn-neutral btn-round btn-icon" data-toggle="tooltip" data-original-title="export pemasukan">
+                            <span class="btn-inner--icon"><i class="ni ni-excel"></i></span>
+                    <span class="btn-inner--text">export pengeluaran</span>
+                          </a>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Light table -->
+
+                <div class="table-responsive">
+                  <table id="table-pemasukan" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                      <tr>
+                        <th>No</th>
+                        <th>tanggal</th>
+                        <th>nominal</th>
+                        <th>keterangan</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pengeluaran as $i=>$pl)
+                            <tr>
+                                <td>{{ $i+1 }}</td>
+                                <td>{{ date('d M Y',strtotime($pl->tanggal_pengeluaran)) }}</td>
+                                <td>Rp. {{ number_format($pl->nominal_luar,0) }}</td>
+                                <td>{{ $pl->keterangan }}</td>
+
+                            </tr>
+                        @endforeach
                             <tr>
                                 <td colspan="4">
-                                    Total Rp. {{ number_format($pemasukan_total,0) }}
+                                    Total Rp. <strong>
+                                        {{ number_format($pengeluaran_total,0) }}
+
+                                    </strong>
                                 </td>
                             </tr>
                     </tbody>

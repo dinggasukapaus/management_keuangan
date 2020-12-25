@@ -8,6 +8,11 @@
           <li class="breadcrumb-item active" aria-current="page">data pertemuan</li>
         </ol>
       </nav>
+      @if(session('message'))
+    <div class="col-lg-12 ml-md ">
+        <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+    </div>
+    @endif
     </div>
   </div>
 
@@ -33,7 +38,7 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col" class="sort" data-sort="name">#</th>
+                <th scope="col" class="sort" data-sort="name">No</th>
                 <th scope="col" class="sort" data-sort="budget">keterangan</th>
                 <th scope="col" class="sort" data-sort="budget">tempat</th>
                 <th scope="col" class="sort" data-sort="budget">tanggal</th>
@@ -54,7 +59,7 @@
                         <center>
 
 
-                            <a href="{{ url('pertemuan/'.$item->pertemuan_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit pertemuan">
+                            <a href="{{ url('pertemuan/'.$item->pertemuan_id.'/edit') }}" class="table-action" data-toggle="tooltip" data-original-title="Edit pertemuan">
                                 <i class="fas fa-user-edit"></i>
                             </a>
                             |
@@ -91,7 +96,7 @@
           </button>
         </div>
         <div class="modal-body">
-          anda yakin menghapus
+            Apakah anda yakin akan menghapus data
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -111,13 +116,12 @@
 @section('scripts')
 <script type="text/javascript">
         $(document).ready(function(){
-            $('#btn-hapus').click(function(e){
-            e.preventDefault();
-            var id =$(this).attr('sumber-id');
-            var url = "{{ url('pertemuan') }}"+'/'+id;
+            $('body').on('click','#btn-hapus',function(e){
+                e.preventDefault();
+            var url = $(this).attr('href');
             $('#idmodal').find('form').attr('action',url);
             $('#idmodal').modal();
-        })
+            })
         })
 
 </script>

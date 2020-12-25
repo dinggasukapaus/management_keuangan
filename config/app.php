@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         yajra\DataTables\DataTablesServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -231,6 +232,7 @@ return [
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Datatables' => yajra\Datatables\Facades\Datatables::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

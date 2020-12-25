@@ -35,7 +35,7 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col" class="sort" data-sort="name">#</th>
+                <th scope="col" class="sort" data-sort="name">No</th>
                 <th scope="col" class="sort" data-sort="budget">produksi</th>
                 <th scope="col" class="sort" data-sort="budget">pengeluaran</th>
                 <th scope="col" class="sort" data-sort="budget">jumlah</th>
@@ -59,11 +59,11 @@
                         <center>
 
 
-                            <a href="{{ url('produksi/'.$item->produksi_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit produksi">
+                            <a href="{{ url('produksi/'.$item->produksi_id.'/edit') }}" class="table-action" data-toggle="tooltip" data-original-title="Edit produksi">
                                 <i class="fas fa-user-edit"></i>
                             </a>
                             |
-                            <a sumber-id="{{ $item->produksi_id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('produksi/'.$item->produksi_id) }}" data-toggle="tooltip" data-original-title="Delete produksi">
+                            <a sumber-id="{{ $item->produksi_id }}" id="btn-hapus" class="table-action table-action-delete" href="{{ url('produksi/'.$item->produksi_id.'/delete') }}" data-toggle="tooltip" data-original-title="Delete produksi">
                                 <i style="color: red" class="fas fa-trash"></i>
                             </a>
 
@@ -97,7 +97,7 @@
           </button>
         </div>
         <div class="modal-body">
-          anda yakin menghapus
+            Apakah anda yakin akan menghapus data
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -117,13 +117,12 @@
 @section('scripts')
 <script type="text/javascript">
         $(document).ready(function(){
-            $('#btn-hapus').click(function(e){
-            e.preventDefault();
-            var id =$(this).attr('sumber-id');
-            var url = "{{ url('produksi') }}"+'/'+id;
-            $('#idmodal').find('form').attr('action',url);
-            $('#idmodal').modal();
-        })
+            $('body').on('click','#btn-hapus',function(e){
+                e.preventDefault();
+                var url = $(this).attr('href');
+                $('#idmodal').find('form').attr('action',url);
+                $('#idmodal').modal();
+            })
         })
 
 </script>

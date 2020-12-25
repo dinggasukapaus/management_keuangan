@@ -24,9 +24,25 @@ class PertemuanController extends Controller
         $this->validate($request,[
             'keterangan'=>'required|string',
             'tempat'=>'required',
-            'tanggal'=>'required|unique:datapertemuan|date|after:tomorrow',
+            'tanggal'=>'required|date|after:yesterday|unique:datapertemuan',
             'waktu'=>'required'
         ]);
+
+        $tanggal = DB::table('datapertemuan')->select('tanggal')->get();
+        // return date('Y-m-d', strtotime( $request->tanggal));
+        $dt = date('Y-m-d', strtotime( $request->tanggal));
+        foreach($tanggal as $item){
+            // dd ($item->tanggal);
+            // return $dt.' '.$item->tanggal;
+            if ($item->tanggal == $dt) {
+                Alert::error('gagal' ,'tanggal sudah ada jadwal');
+                return back()->withMessage('tanggal tidak boleh sama');
+
+                // echo 'sama';
+            }
+
+        }
+
 
         DB::table('datapertemuan')->insert([
             'pertemuan_id'=>Uuid::generate(4),
@@ -36,7 +52,7 @@ class PertemuanController extends Controller
             'waktu'=>date('H:i:s',strtotime($request->waktu))
         ]);
 
-        Alert::success('selamat' ,'anda berhasil menginputkan');
+        Alert::success('data' ,'berhasil di tambahkan');
 
         return redirect('pertemuan');
 
@@ -61,7 +77,7 @@ class PertemuanController extends Controller
             'tanggal'=>date('Y-m-d',strtotime($request->tanggal)),
             'waktu'=>date('H:i:s',strtotime($request->waktu))
         ]);
-        toast('selamat anda telah berhasil mengubah data', 'success');
+        toast('data berhasil di ubah', 'success');
         return redirect('pertemuan');
 
     }

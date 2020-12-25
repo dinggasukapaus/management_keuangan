@@ -49,7 +49,7 @@ class SumberController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
 
         ]);
-        Alert::success('selamat', $nama . ' telat ditambah');
+        Alert::success('Selamat anda berhasil mengiputkan');
 
 
         return redirect('sumber-pemasukan');
@@ -66,7 +66,7 @@ class SumberController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required|min:0|max:30|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
-            'nohp' => 'required|numeric|max:14',
+            'nohp' => 'required|numeric|digits_between:2,14',
             'alamat' => 'required'
         ]);
 
@@ -79,7 +79,7 @@ class SumberController extends Controller
         ]);
 
         // Alert::success('selamat', $request->keterangan . ' di update');
-        toast('data anda berhasil di update !', 'success');
+        toast('Selamat anda telah berhasil mengubah data', 'success');
         // return redirect('sumber-pemasukan')->withToastSuccess($request->keterangan, 'berhasil di update');
 
 
@@ -90,7 +90,7 @@ class SumberController extends Controller
     {
         $total_pemasukan = DB::table('datapemasukan')->get()->sum('total_pemasukan');
         if ($total_pemasukan) {
-        return back()->withMessage('tidak bisa delete: karena masih ada data yang terikat');
+        return back()->withMessage('tidak bisa delete: karena masih ada data pemasukan');
         }
         DB::table('datadistributor')->where('id', $id)->delete();
         Alert::info('data', ' telat hapus');

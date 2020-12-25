@@ -33,17 +33,19 @@
       </div>
     </div>
     <!-- Light table -->
-    @role('admin|user')
+
     <div class="table-responsive">
       <table id="table-pemasukan" class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>nama</th>
             <th>no hp</th>
             <th>jabatan</th>
             <th>alamat</th>
+            @role('admin')
             <th>aksi</th>
+            @endrole
           </tr>
         </thead>
         <tbody>
@@ -54,8 +56,9 @@
                     <td>{{ $item->nohp }}</td>
                     <td>{{ $item->jabatan }}</td>
                     <td>{{ $item->alamat }}</td>
+                    @role('admin')
                     <td>
-                        <a href="{{ url('pegawai/'.$item->pegawai_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit pegawai">
+                        <a href="{{ url('pegawai/'.$item->pegawai_id.'/edit') }}" class="table-action" data-toggle="tooltip" data-original-title="Edit pegawai">
                             <i class="fas fa-user-edit"></i>
                         </a>
                         |
@@ -63,6 +66,7 @@
                             <i style="color: red" class="fas fa-trash"></i>
                         </a>
                     </td>
+                    @endrole
                 </tr>
             @endforeach
         </tbody>
@@ -70,7 +74,7 @@
       </table>
     </div>
 </div>
-    @endrole
+
 
     <!-- Modal -->
 <div class="modal fade" id="idmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,7 +87,7 @@
           </button>
         </div>
         <div class="modal-body">
-          anda yakin menghapus
+            Apakah anda yakin akan menghapus data
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -40,11 +40,11 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col" class="sort" data-sort="name">#</th>
+                <th scope="col" class="sort" data-sort="name">No</th>
                 <th scope="col" class="sort" data-sort="budget">nama</th>
                 <th scope="col" class="sort" data-sort="budget">no hp</th>
                 <th scope="col" class="sort" data-sort="budget">alamat</th>
-                <th scope="col" class="sort" data-sort="status">Create At</th>
+
                 @role('admin')
                 <th scope="col"><center>Action</center></th>
                 @endrole
@@ -58,13 +58,13 @@
                     <td>{{ $sb->nama }}</td>
                     <td>{{ $sb->nohp }}</td>
                     <td>{{ $sb->alamat }}</td>
-                    <td>{{ date('m/d/Y',strtotime($sb->created_at)) }}</td>
+
                     @role('admin')
                     <td class="table-actions">
                         <center>
 
 
-                            <a href="{{ url('sumber-pemasukan/'.$sb->id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
+                            <a href="{{ url('sumber-pemasukan/'.$sb->id.'/edit') }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
                                 <i class="fas fa-user-edit"></i>
                             </a>
                             |
@@ -102,7 +102,7 @@
           </button>
         </div>
         <div class="modal-body">
-          anda yakin menghapus
+            Apakah anda yakin akan menghapus data
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -122,10 +122,9 @@
 @section('scripts')
 <script type="text/javascript">
         $(document).ready(function(){
-            $('#btn-hapus').click(function(e){
+            $('body').on('click','#btn-hapus',function(e){
             e.preventDefault();
-            var id =$(this).attr('sumber-id');
-            var url = "{{ url('sumber-pemasukan') }}"+'/'+id;
+            var url = $(this).attr('href');
             $('#idmodal').find('form').attr('action',url);
             $('#idmodal').modal();
         })

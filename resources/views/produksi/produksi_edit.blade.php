@@ -17,7 +17,7 @@
     @csrf
     @method('put')
     <div class="row">
-      <div class="col-md-6">
+      <div class="col">
         <div class="form-group">
             <label class="form-control-label" for="exampleFormControlInput1">Produksi</label>
           <input value="{{ $data->produksi }}" type="text" name="produksi" class="form-control" id="exampleFormControlInput1" placeholder="produksi ..">
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label class="form-control-label" for="exampleFormControlInput1">Pengeluaran</label>
-          <input readonly value="{{ $data->pengeluaran }}" type="number" name="pengeluaran" class="form-control" id="exampleFormControlInput1" placeholder="pengeluaran ..">
+          <input value="{{ $data->pengeluaran }}" type="number" name="pengeluaran" class="form-control" id="exampleFormControlInput1" placeholder="pengeluaran ..">
           @error('pengeluaran')
           <div class="alert-danger">{{ $message }}</div>
           @enderror

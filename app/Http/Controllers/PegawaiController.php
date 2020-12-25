@@ -66,7 +66,7 @@ class PegawaiController extends Controller
             'jabatan'=>$request->jabatan,
             'alamat'=>$request->alamat
         ]);
-        toast('semalat anda telah berhasil mengubah data', 'success');
+        toast('selamat anda telah berhasil mengubah data', 'success');
         return redirect('pegawai');
 
     }

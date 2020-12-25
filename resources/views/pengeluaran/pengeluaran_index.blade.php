@@ -35,7 +35,7 @@
       <table id="table-pemasukan" class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
-            <th>#</th>
+            <th>No</th>
             <th>Nominal</th>
             <th>Tanggal</th>
             <th>Keterangan</th>
@@ -53,7 +53,7 @@
                     <td>{{ $item->keterangan }}</td>
                     @role('admin')
                     <td>
-                        <a href="{{ url('pengeluaran/'.$item->pengeluaran_id) }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
+                        <a href="{{ url('pengeluaran/'.$item->pengeluaran_id.'/edit') }}" class="table-action" data-toggle="tooltip" data-original-title="Edit sumber">
                             <i class="fas fa-user-edit"></i>
                         </a>
                         |
@@ -79,8 +79,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          anda yakin menghapus
+        <div class="modal-body">Apakah anda yakin akan menghapus data
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

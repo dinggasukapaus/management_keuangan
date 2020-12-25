@@ -30,7 +30,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('sumber-pemasukan', 'SumberController@index');
     Route::get('sumber-pemasukan/add', 'SumberController@add');
     Route::post('sumber-pemasukan/add', 'SumberController@store');
-    Route::get('sumber-pemasukan/{id}', 'SumberController@edit');
+    Route::get('sumber-pemasukan/{id}/edit', 'SumberController@edit');
     Route::put('sumber-pemasukan/{id}', 'SumberController@update');
     Route::delete('sumber-pemasukan/{id}', 'SumberController@delete');
     //manajemen pemasukan
@@ -38,7 +38,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('pemasukan/yajra', 'PemasukanController@yajra');
     Route::get('pemasukan/add', 'PemasukanController@add');
     Route::post('pemasukan/add', 'PemasukanController@store');
-    Route::get('pemasukan/{id}', 'PemasukanController@edit');
+    Route::get('pemasukan/{id}/edit', 'PemasukanController@edit');
     Route::put('pemasukan/{id}', 'PemasukanController@update');
     Route::delete('pemasukan/{id}', 'PemasukanController@delete');
 
@@ -46,7 +46,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('pengeluaran','PengeluaranController@index');
     Route::get('pengeluaran/add','PengeluaranController@add');
     Route::post('pengeluaran/add','PengeluaranController@store');
-    Route::get('pengeluaran/{id}','PengeluaranController@edit');
+    Route::get('pengeluaran/{id}/edit','PengeluaranController@edit');
     Route::put('pengeluaran/{id}','PengeluaranController@update');
     Route::delete('pengeluaran/{id}','PengeluaranController@delete');
 
@@ -54,7 +54,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('pegawai','PegawaiController@index');
     Route::get('pegawai/add','PegawaiController@add');
     Route::post('pegawai/add','PegawaiController@store');
-    Route::get('pegawai/{id}','PegawaiController@edit');
+    Route::get('pegawai/{id}/edit','PegawaiController@edit');
     Route::put('pegawai/{id}','PegawaiController@update');
     Route::delete('pegawai/{id}','PegawaiController@delete');
 
@@ -62,20 +62,25 @@ Route::group(['middleware' => ['role:admin']], function () {
      Route::get('produksi','ProduksiController@index');
      Route::get('produksi/add','ProduksiController@add');
      Route::post('produksi/add','ProduksiController@store');
-     Route::get('produksi/{id}','ProduksiController@edit');
+     Route::get('produksi/{id}/edit','ProduksiController@edit');
      Route::put('produksi/{id}','ProduksiController@update');
-     Route::delete('produksi/{id}','ProduksiController@delete');
+     Route::delete('produksi/{id}/delete','ProduksiController@delete');
 
      //manajemen pertemuan
      Route::get('pertemuan','PertemuanController@index');
      Route::get('pertemuan/add','PertemuanController@add');
      Route::post('pertemuan/add','PertemuanController@store');
-     Route::get('pertemuan/{id}','PertemuanController@edit');
+     Route::get('pertemuan/{id}/edit','PertemuanController@edit');
      Route::put('pertemuan/{id}','PertemuanController@update');
      Route::delete('pertemuan/{id}','PertemuanController@delete');
 
      Route::get('laporan','LaporanController@index');
      Route::get('laporan_cari','LaporanController@cari');
+
+     //! export to excel
+     Route::get('export-pemasukan/{dari}/{sampai}','LaporanController@export_pemasukan');
+     Route::get('export-pengeluaran/{dari}/{sampai}','LaporanController@export_pengeluaran');
+     Route::get('export-rekap/{dari}/{sampai}','LaporanController@rekap_laporan');
 });
 
 Route::group(['middleware' => ['role:user|admin']], function () {
@@ -96,12 +101,17 @@ Route::group(['middleware' => ['role:user|admin']], function () {
     Route::get('pertemuan','PertemuanController@index');
     Route::get('pertemuan/add','PertemuanController@add');
     Route::post('pertemuan/add','PertemuanController@store');
-    Route::get('pertemuan/{id}','PertemuanController@edit');
+    Route::get('pertemuan/{id}/edit','PertemuanController@edit');
     Route::put('pertemuan/{id}','PertemuanController@update');
     Route::delete('pertemuan/{id}','PertemuanController@delete');
 
     Route::get('laporan','LaporanController@index');
     Route::get('laporan_cari','LaporanController@cari');
+
+    //! export to excel
+    Route::get('export-pemasukan/{dari}/{sampai}','LaporanController@export_pemasukan');
+    Route::get('export-pengeluaran/{dari}/{sampai}','LaporanController@export_pengeluaran');
+    Route::get('export-rekap/{dari}/{sampai}','LaporanController@rekap_laporan');
 
 });
 

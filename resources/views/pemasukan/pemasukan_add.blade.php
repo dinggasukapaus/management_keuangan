@@ -6,6 +6,7 @@
       <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md">
         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ url('pemasukan') }}">data pemasukan</a></li>
           <li class="breadcrumb-item active" aria-current="page">tambah pemasukan</li>
         </ol>
       </nav>
