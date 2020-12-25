@@ -18,9 +18,9 @@
 -   [x] login
 -   [x] role user
 -   [x] dashboard
--   [ ] pembagian menu untul setiap role
--   [ ] management keuangan
+-   [x] pembagian menu untul setiap role
+-   [x] management keuangan
 -   [x] management distributor
--   [ ] management pegawai
--   [ ] management jadwal pertemuan && management produksi
--   [ ] data rekap
+-   [x] management pegawai
+-   [x] management jadwal pertemuan && management produksi
+-   [x] data rekap (excel)
