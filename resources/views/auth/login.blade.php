@@ -33,8 +33,11 @@
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <small>admin  username:admin@gmail.com</small>
+                <br>
                 <small>admin  password:123456</small>
+                <br>
                 <small>user  username:user@gmail.com</small>
+                <br>
                 <small>user  password:123456</small>
 
               </div>
