@@ -10,7 +10,7 @@
           <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6 col-md-8 px-5">
                <div class="row justify-content-center">
-                   <img src="{{asset('argon/assets/img/brand/tempe.png')}}">
+                   <img src="{{asset('argon/assets/img/brand/logo_sumbermas.png')}}">
 
                </div>
 
