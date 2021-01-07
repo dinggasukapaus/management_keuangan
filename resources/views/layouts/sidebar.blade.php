@@ -62,12 +62,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link{{ (request()->is('pertemuan','pertemuan/add')) ? ' active' : '' }}" href="{{ url('pertemuan') }}">
-                  <i class="ni ni-calendar-grid-58 text-blue"></i>
-                  <span class="nav-link-text">Pertemuan</span>
-                </a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link{{ (request()->is('pegawai')) ? ' active' : '' }}" href="{{ url('pegawai') }}">
                   <i class="ni ni-single-02 text-info"></i>
