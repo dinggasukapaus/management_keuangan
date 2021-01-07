@@ -1,6 +1,6 @@
 ## Todo
 
--   [x] instalasi template
+-   [x] instalasi templatee
 -   [x] login
 -   [x] role user
 -   [x] dashboard
