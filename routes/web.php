@@ -66,13 +66,7 @@ Route::group(['middleware' => ['role:admin']], function () {
      Route::put('produksi/{id}','ProduksiController@update');
      Route::delete('produksi/{id}/delete','ProduksiController@delete');
 
-     //manajemen pertemuan
-     Route::get('pertemuan','PertemuanController@index');
-     Route::get('pertemuan/add','PertemuanController@add');
-     Route::post('pertemuan/add','PertemuanController@store');
-     Route::get('pertemuan/{id}/edit','PertemuanController@edit');
-     Route::put('pertemuan/{id}','PertemuanController@update');
-     Route::delete('pertemuan/{id}','PertemuanController@delete');
+
 
      Route::get('laporan','LaporanController@index');
      Route::get('laporan_cari','LaporanController@cari');
@@ -97,13 +91,7 @@ Route::group(['middleware' => ['role:user|admin']], function () {
     Route::get('pegawai','PegawaiController@index');
     //list produksi
     Route::get('produksi','ProduksiController@index');
-    //list pertemuan
-    Route::get('pertemuan','PertemuanController@index');
-    Route::get('pertemuan/add','PertemuanController@add');
-    Route::post('pertemuan/add','PertemuanController@store');
-    Route::get('pertemuan/{id}/edit','PertemuanController@edit');
-    Route::put('pertemuan/{id}','PertemuanController@update');
-    Route::delete('pertemuan/{id}','PertemuanController@delete');
+
 
     Route::get('laporan','LaporanController@index');
     Route::get('laporan_cari','LaporanController@cari');
