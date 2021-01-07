@@ -5,7 +5,7 @@
       <!-- Brand -->
       <div class="sidenav-header  d-flex  align-items-center">
         <a class="navbar-brand" href=" pages/dashboards/dashboard.html">
-            <img src="{{asset('argon/assets/img/brand/tempe.png')}}" class="navbar-brand-img" alt="...">
+            <img src="{{asset('argon/assets/img/brand/logo_sumbermas_blue.png')}}" class="navbar-brand-img" alt="...">
         </a>
       </div>
       <div class="navbar-inner">
