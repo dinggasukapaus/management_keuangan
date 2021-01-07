@@ -33,6 +33,10 @@
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
                 <small>selamat datang di management keuangan</small>
+                <small>admin  username:admin@gmail.com</small>
+                <small>admin  password:123456</small>
+                <small>user  username:user@gmail.com</small>
+                <small>user  password:123456</small>
 
               </div>
               <form role="form" method="POST" action="{{ route('login') }}">
