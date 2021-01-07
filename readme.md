@@ -1,5 +1,3 @@
-
-
 ## Todo
 
 -   [x] instalasi template
@@ -10,5 +8,5 @@
 -   [x] management keuangan
 -   [x] management distributor
 -   [x] management pegawai
--   [x] management jadwal pertemuan && management produksi
+-   [x] management produksi
 -   [x] data rekap (excel)
